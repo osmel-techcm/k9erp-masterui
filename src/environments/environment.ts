@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: window["env"]["apiUrl"] || "http://masterapi.ocrespo.com/",
+  apiUrl: window["env"]["apiUrl"] || "http://localhost:5010/",
   apiUrlWebSocket: window["env"]["apiUrlWebSocket"] || "http://localhost:3000/"
 };
 
