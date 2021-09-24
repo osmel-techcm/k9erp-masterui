@@ -1,0 +1,18 @@
+<form>
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input matInput placeholder="Name" name="Name" [(ngModel)]="data.tenantName">
+    </mat-form-field>
+
+    <section>
+        <mat-checkbox [(ngModel)]="data.inactive" name="Inactive">Inactive</mat-checkbox>
+    </section>
+
+</form>
+
+<div mat-dialog-actions>
+    <button mat-button (click)="closeDialog()">Cancel</button>
+    <button mat-button (click)="saveDialog()" cdkFocusInitial>Save</button>
+</div>
+
+<!--<mat-spinner></mat-spinner>-->

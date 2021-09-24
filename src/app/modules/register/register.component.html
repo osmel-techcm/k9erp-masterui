@@ -1,0 +1,52 @@
+<div class="wrapper">
+  <div class="form-container">
+    <h1 class="showcase-text">
+      <strong>Register Application</strong>
+    </h1>
+    <!--<div class="logo">
+      <img src="../../../assets/logoLogin.png" />
+    </div>-->
+    <div class="signin">
+      <form (ngSubmit)="registerApp()">
+        <div class="input-modern">
+          <input type="text" required [(ngModel)]="register.group" name="group" [disabled]="ajaxRequest"/>
+          <label>Administrator Group</label>
+          <div class="bar"></div>
+          <span class="required" *ngIf="validation.group">Required</span>
+        </div>
+        <div class="input-modern">
+          <input type="text" required [(ngModel)]="register.email" name="email" [disabled]="ajaxRequest"/>
+          <label>Email</label>
+          <div class="bar"></div>
+          <span class="required" *ngIf="validation.email">Required</span>
+        </div>
+        <div class="input-modern">
+          <input type="password" required [(ngModel)]="register.password" name="password" [disabled]="ajaxRequest"/>
+          <label>Password</label>
+          <div class="bar"></div>
+          <span class="required" *ngIf="validation.password">Required</span>
+        </div>
+        <div class="input-modern">
+          <input type="password" required [(ngModel)]="register._password" name="_password" [disabled]="ajaxRequest"/>
+          <label>Repeat Password</label>
+          <div class="bar"></div>
+          <span class="required" *ngIf="validation._password">Required</span>
+        </div>
+
+        <button class="primary-btn" [disabled]="ajaxRequest">
+          Register
+        </button>
+        <div class="messageWaiting" *ngIf="ajaxRequest">
+          <div>Checking credentials</div>
+          <mat-progress-spinner class="mat-progress-spinner-white" [color]="loading.color" [mode]="loading.mode" [diameter]="loading.diameter"></mat-progress-spinner>
+        </div>
+      </form>
+    </div>
+    <footer class="main-footer">
+      <p>Copyright &copy; {{ currentYear }}, MT All Rights Reserved</p>
+      <div>
+        <a href="#" target="_blank">Privacy Policy</a>
+      </div>
+    </footer>
+  </div>
+</div>

@@ -1,0 +1,44 @@
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+  <mat-toolbar color="primary" class="example-toolbar">
+    <button mat-icon-button (click)="snav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <h1 class="example-app-name">MT</h1>
+
+    <button mat-icon-button [matMenuTriggerFor]="menu" class="pull-right">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="logoutUser()">
+        <mat-icon>power_settings_new</mat-icon>
+        <span>Logout</span>
+      </button>
+      <!--<button mat-menu-item>
+        <mat-icon>settings</mat-icon>
+        <span>Settings</span>
+      </button>-->
+    </mat-menu>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="example-sidenav-container"
+                         [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+    <mat-sidenav #snav [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+      <mat-nav-list (click)="snav.toggle()">
+        <a mat-list-item
+           [routerLink]="nav.link"
+           *ngFor="let nav of fillerNav">{{ nav.name }}</a>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+      <!-- <app-footer></app-footer> -->
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
+
+<swal title="SweetAlert2 Timer" #idleSwal>
+  <div *swalPortal class="alert alert-info">
+    <strong>{{ idleTimeOutCounter }}</strong> seconds elapsed since the modal was opened.
+  </div>
+</swal>

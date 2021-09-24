@@ -1,0 +1,41 @@
+<div class="row">
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input matInput placeholder="Name" name="Name" [(ngModel)]="data.name">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Last Name</mat-label>
+    <input matInput placeholder="Last Name" name="LastName" [(ngModel)]="data.lastName">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input matInput placeholder="Email" name="Email" [(ngModel)]="data.email">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Pasword</mat-label>
+    <input matInput placeholder="Pasword" name="Pasword" [(ngModel)]="data.password" type="password">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Re-Pasword</mat-label>
+    <input matInput placeholder="Re-Pasword" name="Re-Pasword" [(ngModel)]="data.rePasword" type="password">
+  </mat-form-field>
+</div>
+
+<div class="row">
+  <mat-form-field>
+    <mat-label>Group</mat-label>
+    <mat-select [(ngModel)]="data.idGroup" name="group">
+      <mat-option *ngFor="let group of aspnetusergroups" [value]="group.id">
+        {{group.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <section class="inactive-section">
+    <mat-checkbox class="example-margin" [(ngModel)]="data.inactive" name="Inactive" [color]="'primary'">Inactive</mat-checkbox>
+  </section>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="closeDialog()">Cancel</button>
+  <button mat-button (click)="saveDialog()" cdkFocusInitial>Save</button>
+</div>
